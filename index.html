@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zeeshan Saeed – Senior .NET Engineer</title>
+<meta name="description" content="Zeeshan Saeed, senior software engineer (.NET) in Islamabad, Pakistan. Nine years of server-side systems: identity and credential management, cross-border payments, real-time dispatch.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#top">Zeeshan Saeed</a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="eyebrow">Islamabad, Pakistan</p>
+    <h1>Senior software engineer, .NET.</h1>
+    <p class="lead">Nine years building server-side systems where correctness is not negotiable: identity and credential management, cross-border payments and treasury, and real-time dispatch.</p>
+    <p class="cta">
+      <a class="button" href="mailto:Zeeshansaeed8zrt@gmail.com">Email me</a>
+      <a class="button ghost" href="https://www.linkedin.com/in/zeeshansaeed8zs">LinkedIn</a>
+      <a class="button ghost" href="https://github.com/zeeshansaeed83">GitHub</a>
+    </p>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I work at ID-ware on the Visitor Management, User Management and Screening platforms: ASP.NET Core APIs, EF Core persistence, Hangfire background processing and the Angular portals in front of them.</p>
+    <p>I am comfortable the whole way down a change: schema and migrations, authorisation and multi-tenant organisation scoping, API contracts shared by several clients, the CI pipeline that builds it and the release that ships it. I have also led a small team and run delivery for a white-label SaaS product with several tenant deployments.</p>
+    <p>I work in regulated settings as a matter of routine (personal data under GDPR, cardholder and credential data, AML and KYC-adjacent remittance flows) and prefer evidence to assertion: measured build and test output rather than what ought to follow.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <div><dt>Languages</dt><dd>C#, .NET / ASP.NET Core (through .NET 10), TypeScript, JavaScript, SQL, PowerShell</dd></div>
+      <div><dt>Back end</dt><dd>REST API design, versioned route contracts, multi-tenant authorisation and organisation scoping, policy-based access control, Hangfire, typed HTTP clients, middleware and filters</dd></div>
+      <div><dt>Data</dt><dd>Entity Framework Core, SQL Server, schema design and migrations, index design, query performance and N+1 diagnosis, transactional integrity</dd></div>
+      <div><dt>Cloud and integration</dt><dd>Azure Blob Storage, Microsoft Graph, Exchange Web Services (delegated and application permissions), OAuth 2.0 client credentials, SMTP</dd></div>
+      <div><dt>Front end</dt><dd>Angular, RxJS, component and form design, SPA sign-in against a central identity provider</dd></div>
+      <div><dt>Delivery</dt><dd>Git and GitHub, GitHub Actions CI/CD, release branching and tagging, code coverage gates, NuGet central package management, dependency-audit hardening, Docker, Azure DevOps</dd></div>
+      <div><dt>Practice</dt><dd>Clean architecture, SOLID, unit and integration testing (xUnit, Moq), mutation-style verification, security-first code review, technical leadership and mentoring</dd></div>
+    </dl>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <article class="job">
+      <header><h3>Senior Software Engineer, ID-ware</h3><p class="when">July 2023 – present · Islamabad</p></header>
+      <p>Identity, smart card and credential management for organisations that issue and govern credentials at scale. Server side of the platform group: Visitor Management, User Management, the Screening service and the shared core libraries.</p>
+      <ul>
+        <li>ASP.NET Core APIs split by audience (host portal, reception desk, visitor self-service, kiosk terminals, service-to-service), each with its own contract, route versioning and authentication scheme over a shared middleware and authorisation layer.</li>
+        <li>Multi-tenant authorisation: permission-gated endpoints behind a central policy decision point, organisation-scope checks on every request, fail-closed defaults.</li>
+        <li>EF Core schemas and migrations on SQL Server, including filtered unique indexes, guarded destructive SQL and reversible down-paths.</li>
+        <li>Hangfire jobs for appointment lifecycle and notifications, with per-item error isolation so one bad record cannot stop a batch.</li>
+        <li>Integrations: credential management, identity and document checks, an external screening provider, Exchange calendar flows over EWS, a central configuration service.</li>
+        <li>Release process for several product lines, and CI/CD hardening: enforced coverage floors, audit findings promoted to build errors, and a time-boxed pin that turns a forgotten version pin into a build failure on its review date.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <header><h3>Senior Software Engineer / Team Lead, Absoluit</h3><p class="when">January 2021 – June 2023</p></header>
+      <p>Cabsoluit, a white-label taxi and private-hire dispatch platform sold to operators under their own brand, as SaaS and on premise.</p>
+      <ul>
+        <li>Led a development team: estimation, task breakdown, code review, mentoring.</li>
+        <li>Back-end services for dispatch and booking: job allocation, driver and vehicle state, pricing and fares, and the APIs behind the driver and passenger apps.</li>
+        <li>One codebase serving separately branded operator deployments, with configuration and per-operator behaviour driven by data rather than forks.</li>
+        <li>Real-time location and dispatch flows, and deployment and onboarding support, including upgrade paths.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <header><h3>Software Engineer, ACE Money Transfer</h3><p class="when">June 2019 – December 2020</p></header>
+      <p>Internal systems of a cross-border remittance provider: payment integrations, the accounting platform and treasury tooling.</p>
+      <ul>
+        <li>Payment and payout integrations with banks, mobile wallets and aggregators, including status reconciliation when a confirmation arrives late, out of order or never.</li>
+        <li>Ledgers, double-entry postings, commission and fee handling, and reconciliation against partner statements.</li>
+        <li>Treasury software for liquidity and float positions, FX rates and corridor funding.</li>
+        <li>Idempotency and retry design across integration boundaries so a replayed request cannot create a second payment.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <header><h3>Software Engineer, Arif Tech Solutions</h3><p class="when">May 2017 – May 2019</p></header>
+      <p>First professional role: ASP.NET and ASP.NET MVC applications on SQL Server, owning features end to end, including queries, stored procedures and schema changes.</p>
+    </article>
+
+    <p class="note">Customer deployments are confidential and left out on purpose.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <p class="muted">Source for these is private. They are described here, not linked.</p>
+
+    <article class="project">
+      <h3>TerminalDesk</h3>
+      <p class="tags">C# · .NET 10 · EF Core · SQL Server / PostgreSQL / SQLite · Razor · SignalR</p>
+      <p>A bus and cargo operations system for transport companies, built as a multi-company service: ticket and seat sales at the counter and by phone, trips and crew, cargo waybills with proof of delivery, fleet maintenance and inspections, fare and promotion rules with a two-person approval, shifts and payroll, printed tickets with a designer, and the whole program in English and Urdu.</p>
+      <ul>
+        <li>One database, many companies: a company column on every table with a query filter, so a request sees only its own company's rows and a write to another company is refused.</li>
+        <li>Real sign-in (salted PBKDF2 hashes, signed session cookie, lockout), a public site with a 14-day trial, a mail outbox, and an operator console.</li>
+        <li>Tested hard: more than 3,100 automated tests, break proofs that change the code to confirm the tests notice, and performance tests on a company of 100 routes, 300 terminals and 120,000 tickets. One of those found a query filter that slowed a search from 0.13 s to 12 s under load, now fixed.</li>
+        <li>Deployed from my own PC over FTPS to a shared host. <a href="https://karwan.gearhost.io">Live demo</a> (demo data only).</li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <h3>E-Bed</h3>
+      <p class="tags">C# · ASP.NET · JavaScript · SCSS · 2020–2021</p>
+      <p>A layered .NET web application: data access, repositories and services behind a Web API, with a separate web app and SCSS front end.</p>
+    </article>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <p><strong>BS Information Technology</strong>, University Institute of Information Technology (UIIT), PMAS Arid Agriculture University, Rawalpindi · 2013 – 2017</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>The best way to reach me is email. References are available on request.</p>
+    <p class="cta">
+      <a class="button" href="mailto:Zeeshansaeed8zrt@gmail.com">Zeeshansaeed8zrt@gmail.com</a>
+      <a class="button ghost" href="https://www.linkedin.com/in/zeeshansaeed8zs">LinkedIn</a>
+      <a class="button ghost" href="https://github.com/zeeshansaeed83">GitHub</a>
+    </p>
+  </section>
+</main>
+
+<footer class="foot"><p>© 2026 Zeeshan Saeed · Islamabad, Pakistan</p></footer>
+</body>
+</html>
