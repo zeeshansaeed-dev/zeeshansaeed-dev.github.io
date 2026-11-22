@@ -118,6 +118,19 @@ h1 em { font-style: normal; background: linear-gradient(100deg, var(--accent), v
 .timeline .when { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .04em; }
 .contact { text-align: center; padding-bottom: 56px; }
 .contact .lead { margin: 0 auto; }
+.form { text-align: left; max-width: 640px; margin: 28px auto 8px; background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); }
+.form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form label { display: block; font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 14px; }
+.form input, .form textarea {
+  display: block; width: 100%; margin-top: 5px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--bg); color: var(--fg); font: inherit; font-weight: 400;
+}
+.form input:focus, .form textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+.form textarea { resize: vertical; }
+.form-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 10px; }
+.form-actions .button { cursor: pointer; font-family: inherit; }
+.form .small { margin: 0; }
+@media (max-width: 560px) { .form .row { grid-template-columns: 1fr; } }
 .foot { max-width: 1040px; margin: 0 auto; padding: 24px 20px 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
 .reveal.in { opacity: 1; transform: none; }

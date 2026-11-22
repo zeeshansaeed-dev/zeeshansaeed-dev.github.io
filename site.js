@@ -22,6 +22,27 @@
   }
   seats.innerHTML = html;
 
+  // contact form: no server, so it hands the message to the visitor's own mail app or WhatsApp
+  var form = document.getElementById('contact-form');
+  if (form) {
+    var via = 'mail';
+    [].forEach.call(form.querySelectorAll('button[type=submit]'), function (b) {
+      b.addEventListener('click', function () { via = b.getAttribute('data-via'); });
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = form.elements, note = document.getElementById('form-note');
+      var name = f.name.value.trim(), reply = f.reply.value.trim(), msg = f.message.value.trim();
+      if (!name || !reply || !msg) { note.textContent = 'Please fill in your name, how to reach you, and a message.'; return; }
+      var body = msg + '\n\n' + name + '\n' + reply;
+      var url = via === 'wa'
+        ? 'https://wa.me/' + form.getAttribute('data-wa') + '?text=' + encodeURIComponent('Hi Zeeshan, ' + body)
+        : 'mailto:' + form.getAttribute('data-mail') + '?subject=' + encodeURIComponent('Portfolio message from ' + name) + '&body=' + encodeURIComponent(body);
+      note.textContent = via === 'wa' ? 'Opening WhatsApp…' : 'Opening your email app… if nothing opens, write to ' + form.getAttribute('data-mail') + '.';
+      window.open(url, via === 'wa' ? '_blank' : '_self', 'noopener');
+    });
+  }
+
   // reveal on scroll
   var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {

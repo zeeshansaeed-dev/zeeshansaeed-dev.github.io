@@ -149,7 +149,21 @@
 
   <section id="contact" class="contact">
     <h2>Let's talk.</h2>
-    <p class="lead">Email is the quickest way. References are available on request.</p>
+    <p class="lead">Write a message below, or reach me directly. References are available on request.</p>
+
+    <form id="contact-form" class="form" data-mail="Zeeshansaeed8zrt@gmail.com" data-wa="923335130976" novalidate>
+      <div class="row">
+        <label>Your name<input name="name" autocomplete="name" required maxlength="80"></label>
+        <label>Your email or phone<input name="reply" autocomplete="email" required maxlength="120"></label>
+      </div>
+      <label>Message<textarea name="message" rows="5" required maxlength="1500" placeholder="What would you like to talk about?"></textarea></label>
+      <p class="form-actions">
+        <button type="submit" class="button" data-via="mail">Send by email</button>
+        <button type="submit" class="button ghost" data-via="wa">Send on WhatsApp</button>
+      </p>
+      <p class="small muted" id="form-note" role="status">This opens your own email app or WhatsApp with the message filled in. Nothing is stored on this site.</p>
+    </form>
+
     <p class="cta center">
       <a class="button big" href="mailto:Zeeshansaeed8zrt@gmail.com">Zeeshansaeed8zrt@gmail.com</a>
     </p>
