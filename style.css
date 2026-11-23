@@ -116,6 +116,18 @@ h1 em { font-style: normal; background: linear-gradient(100deg, var(--accent), v
 .timeline li::before { content: ""; position: absolute; left: -35px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
 .timeline p { margin: 0; color: var(--muted); font-size: 15px; }
 .timeline .when { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .04em; }
+.quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.quote { margin: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; padding: 24px; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.quote:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--accent); }
+.feature-quote { grid-column: 1 / -1; }
+.quote blockquote { margin: 0; position: relative; }
+.quote blockquote::before { content: "“"; display: block; height: 34px; font: 700 64px/1 "Space Grotesk", sans-serif; color: var(--accent); }
+.quote blockquote p { margin: 0 0 10px; color: var(--fg); font-size: 16px; }
+.feature-quote blockquote p { font-size: 17px; }
+.quote figcaption { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+.quote figcaption b { color: var(--fg); font-size: 15px; }
+.av { flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; font: 700 14px "Space Grotesk", sans-serif; color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent2)); }
+@media (max-width: 860px) { .quotes { grid-template-columns: 1fr; } }
 .contact { text-align: center; padding-bottom: 56px; }
 .contact .lead { margin: 0 auto; }
 .form { text-align: left; max-width: 640px; margin: 28px auto 8px; background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); }
