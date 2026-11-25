@@ -43,6 +43,52 @@
     });
   }
 
+  // Kind words slider: arrows, dots, and "Read more" on quotes that were cut short
+  var track = document.getElementById('quotes');
+  if (track) {
+    var cards = [].slice.call(track.children), dots = document.getElementById('q-dots');
+    var prev = document.getElementById('q-prev'), next = document.getElementById('q-next');
+    var step = function () { return cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth; };
+    var spots = function () { return Math.max(1, cards.length - Math.round(track.clientWidth / step()) + 1); }; // places the row can rest at
+    var here = function () { return Math.min(spots() - 1, Math.round(track.scrollLeft / step())); };
+    var goTo = function (i) { track.scrollTo({ left: i * step() }); };
+    var draw = function () {
+      var n = spots(), cur = here();
+      if (dots.children.length !== n) {
+        dots.innerHTML = '';
+        for (var i = 0; i < n; i++) (function (i) {
+          var b = document.createElement('button');
+          b.type = 'button'; b.setAttribute('aria-label', 'Show recommendation ' + (i + 1));
+          b.addEventListener('click', function () { goTo(i); });
+          dots.appendChild(b);
+        })(i);
+      }
+      [].forEach.call(dots.children, function (b, i) { b.setAttribute('aria-current', i === cur ? 'true' : 'false'); });
+      prev.disabled = track.scrollLeft < 4;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      document.querySelector('.slider-bar').style.display = n > 1 ? '' : 'none';
+    };
+    prev.addEventListener('click', function () { goTo(Math.max(0, here() - 1)); });
+    next.addEventListener('click', function () { goTo(Math.min(spots() - 1, here() + 1)); });
+    track.addEventListener('scroll', draw, { passive: true });
+
+    cards.forEach(function (card) {
+      var bq = card.querySelector('blockquote'), btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'more'; btn.textContent = 'Read more'; btn.hidden = true;
+      card.insertBefore(btn, card.querySelector('figcaption'));
+      btn.addEventListener('click', function () {
+        var open = card.classList.toggle('open');
+        btn.textContent = open ? 'Show less' : 'Read more';
+        btn.setAttribute('aria-expanded', open);
+      });
+      card._check = function () { if (!card.classList.contains('open')) btn.hidden = bq.scrollHeight <= bq.clientHeight + 1; };
+    });
+    var fit = function () { cards.forEach(function (c) { c._check(); }); draw(); };
+    addEventListener('resize', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    fit();
+  }
+
   // reveal on scroll
   var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
