@@ -120,6 +120,7 @@ h1 em { font-style: normal; background: linear-gradient(100deg, var(--accent), v
 .quote { margin: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; padding: 24px; transition: transform .2s, box-shadow .2s, border-color .2s; }
 .quote:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--accent); }
 .feature-quote { grid-column: 1 / -1; }
+.quote:last-child:nth-child(even) { grid-column: 1 / -1; } /* a lone last card fills its row */
 .quote blockquote { margin: 0; position: relative; }
 .quote blockquote::before { content: "“"; display: block; height: 34px; font: 700 64px/1 "Space Grotesk", sans-serif; color: var(--accent); }
 .quote blockquote p { margin: 0 0 10px; color: var(--fg); font-size: 16px; }
